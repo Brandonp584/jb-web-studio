@@ -1,0 +1,14 @@
+/* Colors, variables, spacing, radius, fonts */
+
+:root {
+    --color-primary: #38bdf8;
+    --color-bg-dark: #020617;
+    --color-text-muted: #94a3b8;
+
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+
+    --radius-md: 12px;
+    --max-width: 1200px;
+}
