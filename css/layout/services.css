@@ -1,0 +1,135 @@
+/* ========== SERVICES SECTION ========== */
+
+.services {
+    padding: clamp(4rem, 8vw, 6rem) var(--space-md);
+    background:
+        radial-gradient(
+            900px circle at top,
+            rgba(99, 102, 241, 0.06),
+            tansparent 60%
+        );
+}
+
+/* -------- Section Header -------- */
+
+.services .section-header {
+    max-width: 720px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+}
+
+.services .section-header h2 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-bottom: 0.75rem;
+}
+
+.services .section-header p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* -------- Grid -------- */
+
+.services-grid {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+/* -------- Service Card -------- */
+
+.service-card {
+    position: relative;
+    padding: clamp(1.75rem, 3vw, 2.25rem);
+    border-radius: var(--radius-md);
+    background: 
+    linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.9),
+        rgba(2, 6, 23, 0.95)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition:      
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+    overflow: hidden;
+}
+
+/* Soft glow layer */
+.service-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        500px circle at top left,
+        rgba(56, 189, 248, 0.08),
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+/* Hover state */
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.45);
+    box-shadow:    
+        0 25px 60px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(56, 189, 248, 0.2);
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+/* -------- Typography -------- */
+
+.service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.6rem;
+    transition: color 0.3s ease;
+}
+
+.service-card p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    font-size: 0.95;
+}
+
+.service-card:hover h3 {
+    color: var(--color-primary);
+}
+
+/* -------- Subtle stagger illusion -------- */
+
+.service-card:nth-child(2) {
+    transform: tanslateY(6px);
+}
+
+.service-card:nth-child(3) {
+    transform: tanslateY(12px);
+}
+
+.service-card:nth-child(2),
+.service-card:nth-child(3) {
+    transform: translateY(-8px);
+}
+
+/* -------- Reduced Motion -------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .service-card::before {
+        transition: none;
+    }
+
+    .service-card:hover {
+        transform: none;
+    }
+}
