@@ -3,7 +3,7 @@ const sections = document.querySelectorAll("section[id], header[id]");
 const navLinks = document.querySelectorAll(".nav-links a");
 
 window.addEventListener("scroll", () => {
-    let currentSection = "",
+    let currentSection = "";
 
     if (window.scrollY > 10) {
         navbar.classList.add("scrolled");
