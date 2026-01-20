@@ -1,0 +1,148 @@
+/* ========== WHY US SECTION ========== */
+
+#why-us {
+    padding: clamp(4.5rem, 9vw, 6.5rem) var(--space-md);
+    background:
+        radial-gradient(
+            1000px circle at top,
+            rgba(56, 189, 248, 0.06),
+            transparent 60%
+        );  
+}
+
+/* -------- Section Header -------- */
+
+#why-us .section-header {
+    max-width: 760px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+}
+
+#why-us .section-header h2 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-bottom: 0.75rem;
+}
+
+#why-us .section-header p {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* -------- Grid -------- */
+
+.why-us-grid {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+/* -------- Card Base -------- */
+
+.why-us-card {
+    position: relative;
+    padding: clamp(1.75rem, 3vw, 2.25rem);
+    border-radius: var(--radius-md);
+    background:      
+        linear-gradient(
+            180deg,
+            rgba(15, 23, 42, 0.9),
+            rgba(2, 6, 23, 0.95)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition:     
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+    overflow: hidden;
+}
+
+/* Glow Layer */
+.why-us-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+        450px circle at top left,
+        rgba(56, 189, 248, 0.08),
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+/* Hover State */
+.why-us-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.45);
+    box-shadow:     
+        0 24px 60px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(56, 189, 248, 0.02);
+}
+
+.why-us-card:hover::before {
+    opacity: 1;
+}
+
+/* -------- Featured Card -------- */
+
+.why-us-card.featured {
+    border-color: var(--color-primary);
+    box-shadow:
+        0 0 0 1px rgba(56, 189, 248, 0.35),
+        0 30px 70px rgba(0, 0, 0, 0.65);
+    transform: translateY(-6px);
+}
+
+.why-us-card.featured::before {
+    opacity: 1;
+}
+
+/* -------- Typography -------- */
+
+.why-us-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.why-us-card p {
+    color: var(--color-primary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.why-us-card:hover h3 {
+    color: var(--color-primary);
+}
+
+/* -------- Proof Line -------- */
+
+#why-us .proof {
+    max-width: 760px;
+    margin: 3.5rem auto 0;
+    text-align: center;
+}
+
+#why-us .proof p {
+    font-size: 1.2rem;
+    color: war(--color-text-muted);
+    opacity: 0.85;
+}
+
+/* -------- Reduced Motion -------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .why-us-card,
+    .why-us-card::before {
+        transition: none;
+    }
+
+    .why-us-card:hover {
+        transform: none;
+    }
+}
