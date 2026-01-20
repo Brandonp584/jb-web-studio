@@ -1,0 +1,126 @@
+/* ========== PORTFOLIO SECTION ========== */
+
+.portfolio {
+    padding: clamp(4.5rem, 9vw, 6.5rem) var(--space-md);
+    background:
+        linear-gradient(
+            180deg,
+            rgba(2, 6, 23, 0.85),
+            rgba(2, 6, 23, 1)
+        );
+}
+
+.portfolio .section-header {
+    max-width: 760px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+}
+
+.portfolio .section-header h2 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    margin-bottom: 0.75rem;
+}
+
+.portfolio .section-header p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+/* -------- Grid -------- */
+
+.portfolio-grid {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* -------- Portfolio Item -------- */
+
+.portfolio-item {
+    position: relative;
+    height: 220px;
+    border-radius: var(--radius-md);
+    background:
+        linear-gradient(
+            180deg,
+            rgba(15, 23, 42, 0.95),
+            rgba(2, 6, 23, 0.95)
+        );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    overflow: hidden;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+/* Glow Layer */
+.portfolio-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        500px circle at top left,
+        rgba(56, 189, 248, 0.12),
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+/* Hover interaction */
+.portfolio-item:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 189, 248, 0.45);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(56, 189, 248, 0.2);
+    color: #fff;
+}
+
+.portfolio-item:hover::before {
+    opacity: 1;
+}
+
+/* -------- Placeholder Style -------- */
+
+.portfolio-item::after {
+    content: "View Project";
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.5rem;
+    font-size: 0.85rem;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.portfolio-item:hover::after {
+    opacity: 0.85;
+    transform: translateY(0);
+}
+
+/* -------- Reduced Motion -------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .portfolio-item,
+    .portfolio-item::before,
+    .portfolio-item::after {
+        transition: none;
+    }
+
+    .portfolio-item:hover {
+        transform: none;
+    }
+}
