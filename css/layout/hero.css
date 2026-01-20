@@ -3,7 +3,7 @@
     position: relative;
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: center; 
     overflow: hidden;
     padding: clamp(6rem, 10vh, 8rem) var(--space-md);
 }
@@ -84,5 +84,72 @@
         animation: none;
         opacity: 1;
         transform: none;
+    }
+}
+
+/* -------- Hero Responsive -------- */
+
+/* -------- Tablets / Small Tablets -------- */
+
+@media (max-width: 1024px) {
+    .hero {
+        padding: clamp(5rem, 8vw, 7rem) var(--space-md);
+    }
+
+    .hero-content {
+        max-width: 900px;
+    }
+}
+
+/* -------- Mobile -------- */
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2rem, 6vw, 2.5rem);
+        line-height: 1.15;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        font-size: 1rem;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* -------- Small Mobile -------- */
+
+@media (max-width: 480px) {
+    .hero {
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+    }
+
+    .hero-content h1 {
+        font-size: 1.9rem;
+    }
+
+    .hero::after {
+        background: radial-gradient(
+            600px circle at top left,
+            rgba(56, 189, 248, 0.1),
+            transparent 65%
+        );
     }
 }
