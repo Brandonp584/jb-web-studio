@@ -1,32 +1,43 @@
-const navbar = document.querySelector(".navbar");
-const sections = document.querySelectorAll("section[id], header[id]");
-const navLinks = document.querySelectorAll(".nav-links a");
+document.addEventListener("DOMContentLoaded", () => {
+  const navbar = document.querySelector(".navbar");
+  const toggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  const links = document.querySelectorAll(".nav-links a");
+  const sections = document.querySelectorAll("section[id], header[id]");
 
-window.addEventListener("scroll", () => {
-    let currentSection = "";
+  if (!toggle || !navLinks) return;
 
-    if (window.scrollY > 10) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
+  toggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  links.forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 10);
+
+    let current = "";
 
     sections.forEach(section => {
-        const sectionTop= section.offsetTop - 120;
-        const sectionHeight = section.offsetHeight;
+      const top = section.offsetTop - 140;
+      const height = section.offsetHeight;
 
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
-        ) {
-            currentSection = section.getAttribute("id");
-        }
+      if (window.scrollY >= top && window.scrollY < top + height) {
+        current = section.id;
+      }
     });
 
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${currentSection}`) {
-            link.classList.add("active");
-        }
+    links.forEach(link => {
+      link.classList.toggle(
+        "active",
+        link.getAttribute("href") === `#${current}`
+      );
     });
-});              
+  });
+})
