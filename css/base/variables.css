@@ -2,13 +2,24 @@
 
 :root {
     --color-primary: #38bdf8;
+    --color-seconday: #6366f1;
     --color-bg-dark: #020617;
+    --color-text-light: #e5e7eb;
     --color-text-muted: #94a3b8;
+    --color-text-alt: #d1d5db;
 
+    /* Spacing */
+    --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 1.5rem;
     --space-lg: 3rem;
+    --space-xl: 4rem;
 
+    /* Border Radius */
+    --radius-sm: 6px;
     --radius-md: 12px;
+    --radius-full: 999px;
+
+    /* Max width */
     --max-width: 1200px;
 }
