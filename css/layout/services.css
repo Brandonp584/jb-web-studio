@@ -1,12 +1,12 @@
-/* ========== SERVICES SECTION ========== */
+/* ========== SERVICES SECTION (Mobile First) ========== */
 
 .services {
-    padding: clamp(4rem, 8vw, 6rem) var(--space-md);
+    padding: var(--space-xl) var(--space-md);
     background:
         radial-gradient(
-            900px circle at top,
+            var(--glow-lg) circle at top,
             rgba(99, 102, 241, 0.06),
-            tansparent 60%
+            tansparent 65%
         );
 }
 
@@ -14,18 +14,18 @@
 
 .services .section-header {
     max-width: 720px;
-    margin: 0 auto 3.5rem;
+    margin: 0 auto var(--space-lg);
     text-align: center;
 }
 
 .services .section-header h2 {
-    font-size: clamp(2rem, 4vw, 2.6rem);
-    margin-bottom: 0.75rem;
+    font-size: clamp(2rem, 5vw, 2.4rem);
+    margin-bottom: var(--space-sm);
 }
 
 .services .section-header p {
-    color: var(--color-text-muted);
-    font-size: 1.05rem;
+    font-size: var(--text-md);
+    color: var(--color-text-muted);    
     line-height: 1.6;
 }
 
@@ -35,15 +35,15 @@
     max-width: var(--max-width);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: clamp(1.5rem, 4vw, 2.25rem);
+    grid-template-columns: 1fr;
+    gap: var(--grid-gap-sm);
 }
 
 /* -------- Service Card -------- */
 
 .service-card {
     position: relative;
-    padding: clamp(1.75rem, 3vw, 2.25rem);
+    padding: var(--card-padding-sm);
     border-radius: var(--radius-md);
     background: 
     linear-gradient(
@@ -52,11 +52,11 @@
         rgba(2, 6, 23, 0.95)
     );
     border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
     transition:      
         transform 0.35s ease,
         box-shadow 0.35s ease,
         border-color 0.35s ease;
-    overflow: hidden;
 }
 
 /* Soft glow layer */
@@ -66,9 +66,9 @@
     inset: 0;
     border-radius: inherit;
     background: radial-gradient(
-        500px circle at top left,
+        var(--glow-sm) circle at top left,
         rgba(56, 189, 248, 0.08),
-        transparent 60%
+        transparent 65%
     );
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -76,49 +76,70 @@
 }
 
 /* Hover state */
-.service-card:hover {
+.service-card:hover,
+.service-card:focus-within {
     transform: translateY(-8px);
     border-color: rgba(56, 189, 248, 0.45);
     box-shadow:    
-        0 25px 60px rgba(0, 0, 0, 0.6),
+        0 25px 60px rgba(0, 0, 0, 0.55),
         0 0 0 1px rgba(56, 189, 248, 0.2);
 }
 
-.service-card:hover::before {
+.service-card:hover::before,
+.service-card:focus-within::before {
     opacity: 1;
 }
 
 /* -------- Typography -------- */
 
 .service-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.6rem;
+    font-size: var(--text-lg);
+    margin-bottom: 0.5rem;
     transition: color 0.3s ease;
 }
 
 .service-card p {
+    font-size: var(--text-sm);
     color: var(--color-text-muted);
-    line-height: 1.6;
-    font-size: 0.95;
+    line-height: 1.6;    
 }
 
 .service-card:hover h3 {
     color: var(--color-primary);
 }
 
-/* -------- Subtle stagger illusion -------- */
+/* -------- Tablet -------- */
 
-.service-card:nth-child(2) {
-    transform: tanslateY(6px);
+@media (min-width: 640px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.service-card:nth-child(3) {
-    transform: tanslateY(12px);
-}
+/* -------- Desktop -------- */
 
-.service-card:nth-child(2),
-.service-card:nth-child(3) {
-    transform: translateY(-8px);
+@media (min-width: 1024px) {
+    .services {
+        padding: clamp(5rem, 8vw, 7rem) var(--space-lg);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--grid-gap-lg);
+    }
+
+    .service-card {
+        padding: var(--card-padding-lg);
+    }
+
+    .service-card::before {
+        background: 
+            radial-gradient(
+                var(--glow-md) circle at top left,
+                rgba(56, 189, 248, 0.1),
+                transparent 65%
+            );
+    }
 }
 
 /* -------- Reduced Motion -------- */

@@ -7,13 +7,14 @@
     --color-text-light: #e5e7eb;
     --color-text-muted: #94a3b8;
     --color-text-alt: #d1d5db;
+    --color-bg-card: #0f172a;
 
     /* Spacing */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 1.5rem;
     --space-lg: 3rem;
-    --space-xl: 4rem;
+    --space-xl: 5rem;
 
     /* Border Radius */
     --radius-sm: 6px;
@@ -33,5 +34,11 @@
 
     /* Glow Sizes */
     --glow-sm: 400px;
+    --glow-md: 600px;
     --glow-lg: 900px;
+
+    /* Typography */
+    --text-sm: 0.95rem;
+    --text-md: 1.05rem;
+    --text-lg: 1.25rem;
 }
