@@ -1,155 +1,140 @@
-/* ========== HERO SECTION ========== */
+/* ========== HERO SECTION (Mobile First) ========== */
 .hero {
-    position: relative;
-    min-height: 100vh;
     display: flex;
-    align-items: center; 
-    overflow: hidden;
-    padding: clamp(6rem, 10vh, 8rem) var(--space-md);
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('/assets/images/brisbane-city.jpg') center/cover no-repeat;
+    position: relative;
+    color: var(--color-text-light);
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
 }
 
-/* Content wrapper */
+/* Overlay for readability */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(2, 6, 23, 0.6);
+    z-index: 0;
+}
+
 .hero-content {
-    max-width: 1100px;
-    margin: 0 auto;
     position: relative;
     z-index: 1;
 }
 
-/* -------- Entrance Animations -------- */
-
-/* Base hidden state */
-.hero-content h1,
-.hero-content p,
-.hero-actions {
-    opacity: 0;
-    transform: translateY(32px);
-    animation: heroFadeUp 1s ease forwards;
-}
-
-/* Staggered timing */
+/* Headlines */
 .hero-content h1 {
-    animation-delay: 0.1s;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-md);
+    animation: fadeInUp 1s ease forwards;
 }
 
+/* Paragraph */
 .hero-content p {
-    animation-delay: 0.25s;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto var(--space-lg) auto;
+    color: var(--color-text-alt);
+    animation: fadeInUp 1.1s ease forwards;
 }
 
+/* Buttons Container */
 .hero-actions {
-    animation-delay: 0.4s;
-}
-
-/* Keyframes */
-@keyframes heroFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(32px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* -------- Background Glow -------- */
-
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-        900px circle at left center,
-        rgba(56, 189, 248, 0.12),
-        transparent 60%
-    );
-    pointer-events: none;
-}
-
-/* -------- Hero Actions -------- */
-
-.hero-actions {
-    margin-top: 2rem;
     display: flex;
-    gap: 1.25rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: var(--space-sm);
+    justify-content: center;
+    align-items: center;
+    animation: fadeInUp 1.2s ease forwards;
 }
 
-/* -------- Reduced Motion Support -------- */
-
-@media (prefers-reduced-motion: reduce) {
-    .hero-content h1,
-    .hero-content p,
-    .hero-actions {
-        animation: none;
-        opacity: 1;
-        transform: none;
-    }
+/* Button Styling */
+.hero-actions a.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* -------- Hero Responsive -------- */
+.hero-actions a.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+}
 
-/* -------- Tablets / Small Tablets -------- */
+/* Primary Button */
+.hero-actions a.btn.primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-text-light);
+}
 
-@media (max-width: 1024px) {
+/* Seconday Button */
+.hero-actions a.btn.secondary {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* ========== TABLET (768px+) ========== */
+@media (min-width: 768px) {
     .hero {
-        padding: clamp(5rem, 8vw, 7rem) var(--space-md);
+        text-align: left;
+        padding: 6rem 3rem;
     }
 
-    .hero-content {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content p {
+        font-size: 1.125rem;
+        max-width: 650px;
+    }
+
+    .hero-actions {
+        flex-direction: row;
+        gap: 1.5rem;
+        justify-content: flex-start;
+    }
+}
+
+/* ========== DESKTOP (1024px+) ========== */
+@media (min-width: 1024px) {
+    .hero {
+        padding: 8rem 4rem;
+    }
+
+    .hero-content h1 {
+        font-size: 4rem;
         max-width: 900px;
     }
-}
 
-/* -------- Mobile -------- */
-
-@media (max-width: 768px) {
-    .hero {
-        min-height: auto;
-        padding-top: 6rem;
-        padding-bottom: 4rem;
+    .hero-content p {
+        font-size: 1.25rem;
+        max-width: 700px;
     }
 
-    .hero-content h1 {
-        font-size: clamp(2rem, 6vw, 2.5rem);
-        line-height: 1.15;
-    }
-
-    .hero-content {
-        max-width: 100%;
+    .hero-actions a.btn {
+        padding: 0.85rem 2rem;
         font-size: 1rem;
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .hero-actions .btn {
-        width: 100%;
-        text-align: center;
     }
 }
 
-/* -------- Small Mobile -------- */
-
-@media (max-width: 480px) {
-    .hero {
-        padding-left: var(--space-md);
-        padding-right: var(--space-md);
+/* ========== KEYFRAMES ========== */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
     }
-
-    .hero-content h1 {
-        font-size: 1.9rem;
-    }
-
-    .hero::after {
-        background: radial-gradient(
-            600px circle at top left,
-            rgba(56, 189, 248, 0.1),
-            transparent 65%
-        );
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
