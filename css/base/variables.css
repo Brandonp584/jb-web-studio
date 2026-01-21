@@ -22,4 +22,16 @@
 
     /* Max width */
     --max-width: 1200px;
+
+    /* Card Spacing */
+    --card-padding-sm: 1.75rem;
+    --card-padding-lg: 2.25rem;
+
+    /* Grid Spacing */
+    --grid-gap-sm: 1.5rem;
+    --grid-gap-lg: 2.25rem;
+
+    /* Glow Sizes */
+    --glow-sm: 400px;
+    --glow-lg: 900px;
 }
