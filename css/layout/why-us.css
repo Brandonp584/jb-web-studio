@@ -1,49 +1,56 @@
 /* ========== WHY US SECTION ========== */
 
 #why-us {
-    padding: clamp(4.5rem, 9vw, 6.5rem) var(--space-md);
+    padding: var(--section-padding-mobile) var(--space-md);
     background:
         radial-gradient(
-            1000px circle at top,
-            rgba(56, 189, 248, 0.06),
-            transparent 60%
+            var(--glow-md) circle at top,
+            rgba(56, 189, 248, 0.05),
+            transparent 65%
         );  
 }
 
 /* -------- Section Header -------- */
 
 #why-us .section-header {
-    max-width: 760px;
-    margin: 0 auto 3.5rem;
+    max-width: 100%;
+    margin: 0 auto 2.5rem;
     text-align: center;
 }
 
 #why-us .section-header h2 {
-    font-size: clamp(2rem, 4vw, 2.6rem);
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
     margin-bottom: 0.75rem;
 }
 
 #why-us .section-header p {
     color: var(--color-text-muted);
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1.6;
+    max-width: 42ch;
+}
+
+/* -------- Inner Tag -------- */
+
+.why-us-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-inline: var(--card-inset-mobile);
 }
 
 /* -------- Grid -------- */
 
 .why-us-grid {
-    max-width: var(--max-width);
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: clamp(1.5rem, 4vw, 2.25rem);
+    grid-template-columns: 1fr;
+    gap: var(--grid-gap-sm);
 }
 
 /* -------- Card Base -------- */
 
 .why-us-card {
     position: relative;
-    padding: clamp(1.75rem, 3vw, 2.25rem);
+    padding: var(--card-padding-sm);
     border-radius: var(--radius-md);
     background:      
         linear-gradient(
@@ -52,11 +59,32 @@
             rgba(2, 6, 23, 0.95)
         );
     border: 1px solid rgba(255, 255, 255, 0.08);
-    transition:     
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        border-color 0.35s ease;
     overflow: hidden;
+}
+
+.card-accent {
+    display: block;
+    width: 42px;
+    height: var(--card-accent-height);
+    background: linear-gradient(
+        90deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+    border-radius: var(--radius-full);
+    margin-bottom: 0.75rem;
+    opacity: 0.9;
+
+}
+.why-us-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem
+}
+
+.why-us-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.6;
 }
 
 /* Glow Layer */
@@ -66,26 +94,12 @@
     inset: 0;
     border-radius: inherit;
     background: radial-gradient(
-        450px circle at top left,
+        var(--glow-sm) circle at top left,
         rgba(56, 189, 248, 0.08),
-        transparent 60%
+        transparent 65%
     );
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    opacity: 0.6;
     pointer-events: none;
-}
-
-/* Hover State */
-.why-us-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(56, 189, 248, 0.45);
-    box-shadow:     
-        0 24px 60px rgba(0, 0, 0, 0.6),
-        0 0 0 1px rgba(56, 189, 248, 0.02);
-}
-
-.why-us-card:hover::before {
-    opacity: 1;
 }
 
 /* -------- Featured Card -------- */
@@ -94,44 +108,113 @@
     border-color: var(--color-primary);
     box-shadow:
         0 0 0 1px rgba(56, 189, 248, 0.35),
-        0 30px 70px rgba(0, 0, 0, 0.65);
-    transform: translateY(-6px);
-}
-
-.why-us-card.featured::before {
-    opacity: 1;
+        0 30px 70px rgba(0, 0, 0, 0.6);
 }
 
 /* -------- Typography -------- */
 
 .why-us-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     margin-bottom: 0.5rem;
-    transition: color 0.3s ease;
 }
 
 .why-us-card p {
-    color: var(--color-primary);
+    color: var(--color-text-muted);
     line-height: 1.6;
-    font-size: 0.95rem;
-}
-
-.why-us-card:hover h3 {
-    color: var(--color-primary);
+    font-size: var(--text-sm);
 }
 
 /* -------- Proof Line -------- */
 
 #why-us .proof {
-    max-width: 760px;
-    margin: 3.5rem auto 0;
-    text-align: center;
+    margin: 3rem;
+    text-align: left;
 }
 
 #why-us .proof p {
-    font-size: 1.2rem;
-    color: war(--color-text-muted);
+    font-size: var(--proof-text-size);
+    color: var(--color-text-muted);
     opacity: 0.85;
+    max-width: 48ch;
+}
+
+/* ========== Tablet ========== */
+
+@media (min-width: 768px) {
+    #why-us {
+        padding: 5.5rem var(--space-lg);
+    }
+
+    #why-us .section-header {
+        text-align: center;
+        max-width: 760px;
+        margin-bottom: 3.5rem;
+    }
+
+    #why-us .section-header p {
+        margin: 0 auto;
+    }
+
+    .why-us-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--grid-gap-lg);
+    }
+
+    #why-us .proof {
+        text-align: center;
+        margin-top: 4rem;
+    }
+
+    #why-us .proof p {
+        margin: 0 auto;
+    }
+}
+
+/* ========== Desktop ========== */
+
+@media (min-width: 1024px) {
+    #why-us {
+        padding: var(--section-padding-desktop) var(--space-lg);
+        background: radial-gradient(
+            var(--glow-lg) circle at top,
+            rgba(56, 189, 248, 0.06),
+            transparent 60%
+        );
+    }
+
+    .why-us-grid {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .why-us-card {
+        transition:
+            transform 0.35s ease,
+            box-shadow 0.35s ease,
+            border-color 0.35s ease;
+    }
+
+    .why-us-card::before {
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .why-us-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(56, 189, 248, 0.45);
+        box-shadow:
+            0 25px 60px rgba(0, 0, 0, 0.6),
+            0 0 0 1px rgba(56, 189, 248, 0.2);
+    }
+
+    .why-us-card:hover::before {
+        opacity: 1;
+    }
+
+    .why-us-card.featured {
+        transform: translateY(var(featured-offset));
+    }
 }
 
 /* -------- Reduced Motion -------- */

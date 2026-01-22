@@ -1,6 +1,11 @@
 /* Colors, variables, spacing, radius, fonts */
 
 :root {
+    /* Section Spacing */
+    --section-padding-mobile: 4rem;
+    --section-padding-desktop: clamp(6rem, 10vh, 7.5rem);
+
+    /* Color Scheme */
     --color-primary: #38bdf8;
     --color-seconday: #6366f1;
     --color-bg-dark: #020617;
@@ -41,4 +46,13 @@
     --text-sm: 0.95rem;
     --text-md: 1.05rem;
     --text-lg: 1.25rem;
+
+    /* Proof Text */
+    --proof-text-size: 1.15rem;
+
+    /* Why-Us Featured Offset */
+    --featured-offset: -6px;
+
+    --card-inset-mobile: 0.75rem;
+    --card-accent-height: 3px;
 }
