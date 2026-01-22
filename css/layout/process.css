@@ -1,0 +1,130 @@
+/* ========== PROCESS / HOW IT WORKS SECTION (Moble First) ========== */
+
+.process {
+    padding: clamp(4rem, 8vw, 6rem) var(--space-md);
+    background: linear-gradient(
+        180deg,
+        rgba(2, 6, 23, 0.95),
+        rgba(15, 23, 42, 0.95)
+    );
+}
+
+.process .section-header {
+    max-width: 720px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.process .section-header h2 {
+    font-size: var(--text-sm);
+    margin-bottom: 0.75;
+}
+
+.process .section-header p {
+    color: var(--color-text-muted);
+    font-size: var(--text-md);
+    line-height: 1.6;
+}
+
+/* Steps Container */
+.process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* Single Steps */
+.process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Step Number */
+.step-number {
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--text-lg);
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step:hover .step-number {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4);
+}
+
+/* Step Content */
+.step-content h3 {
+    font-size: var(--text-lg);
+    margin-bottom: 0.5rem;
+}
+
+.step-content p {
+    font-size: var(--text-md);
+    line-height: 1.6;
+    color: var(--color-text-muted)
+}
+
+/* ========== Tablet ========== */
+
+@media (min-width: 768px) {
+    .process-steps {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: var(--space-lg);
+    }
+
+    .process-step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        min-width: 200px;
+    }
+}
+
+
+/* ========== Desktop ========== */
+
+@media (min-width: 1024px) {
+    .process-step {
+        gap: var(--space-lg);
+    }
+
+    .step-number {
+        width: 4rem;
+        height: 4rem;
+        font-size: 1.5rem;
+    }
+
+    .step-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .step-content p {
+        font-size: 1.1rem;
+    }
+}
+
+/* -------- Reduced Motions -------- */
+@media (prefers-reduced-motion: reduce) {
+    .process-step,
+    .step-number {
+        transition: none;
+    }
+}
