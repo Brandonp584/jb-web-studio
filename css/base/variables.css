@@ -55,4 +55,16 @@
 
     --card-inset-mobile: 0.75rem;
     --card-accent-height: 3px;
+
+    /* Portfolio / Card Default */
+    --card-bg-gradient: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.9),
+        rgba(2, 6, 23, 0.95)
+    );
+
+    --card-border: 1px solid rgba(255, 255, 255, 0.08);
+    --card-hover-border: rgba(56, 189, 248, 0.45);
+
+    --overlay-bg: rgba(2, 6, 23, 0.55);
 }

@@ -1,30 +1,30 @@
-/* ========== PORTFOLIO SECTION ========== */
+/* ========== PORTFOLIO SECTION (Mobile First) ========== */
 
 .portfolio {
-    padding: clamp(4.5rem, 9vw, 6.5rem) var(--space-md);
-    background:
-        linear-gradient(
-            180deg,
-            rgba(2, 6, 23, 0.85),
-            rgba(2, 6, 23, 1)
+    padding: var(--section-padding-mobile) var(--space-md);
+    background: radial-gradient(
+            var(--glow-md) circle at top,
+            rgba(99, 102, 241, 0.05),
+            transparent 65%
         );
 }
 
+/* -------- Section Header -------- */
 .portfolio .section-header {
-    max-width: 760px;
-    margin: 0 auto 3.5rem;
     text-align: center;
+    max-width: 48ch;
+    margin: 0 auto var(--space-lg);    
 }
 
 .portfolio .section-header h2 {
-    font-size: clamp(2rem, 4vw, 2.6rem);
-    margin-bottom: 0.75rem;
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+    margin-bottom: var(--space-xs);
 }
 
 .portfolio .section-header p {
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-size: var(--text-md);
     color: var(--color-text-muted);
+    line-height: 1.6;
 }
 
 /* -------- Grid -------- */
@@ -33,33 +33,36 @@
     max-width: var(--max-width);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: clamp(1.5rem, 4vw, 2.5rem);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--grid-gap-sm);
 }
 
 /* -------- Portfolio Item -------- */
 
 .portfolio-item {
     position: relative;
-    height: 220px;
+    aspect-ratio: 4 / 3;
     border-radius: var(--radius-md);
-    background:
-        linear-gradient(
-            180deg,
-            rgba(15, 23, 42, 0.95),
-            rgba(2, 6, 23, 0.95)
-        );
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    color: var(--color-text-muted);
+    background: var(--card-bg-gradient);
+    border: var(--card-border);
     overflow: hidden;
+
+    display: flex;
+    align-items: flex-end;
+    padding: var(--card-padding-sm);    
+    
     transition:
         transform 0.35s ease,
         box-shadow 0.35s ease,
         border-color 0.35s ease;
+}
+
+/* title / Placeholer */
+.portfolio-item::after {
+    content: attr(data-title);
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    opacity: 0.9;
 }
 
 /* Glow Layer */
@@ -68,55 +71,57 @@
     position: absolute;
     inset: 0;
     background: radial-gradient(
-        500px circle at top left,
+        var(--glow-sm) circle at top left,
         rgba(56, 189, 248, 0.12),
-        transparent 60%
+        transparent 65%
     );
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
 }
 
-/* Hover interaction */
-.portfolio-item:hover {
-    transform: translateY(-8px);
-    border-color: rgba(56, 189, 248, 0.45);
-    box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.6),
-        0 0 0 1px rgba(56, 189, 248, 0.2);
-    color: #fff;
+/* ========== Tablet ========== */
+
+@media (min-width: 768px) {
+    .portfolio {
+        padding: 5.5rem var(--space-lg);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--grid-gap-lg);
+    }
 }
 
-.portfolio-item:hover::before {
-    opacity: 1;
-}
+/* ========== Desktop ========== */
 
-/* -------- Placeholder Style -------- */
+@media (min-width: 1024px) {
+    .portfolio {
+        padding: var(--section-padding-desktop) var(--space-lg);
+        background: radial-gradient(
+            var(--glow-lg) circle at top,
+            rgba(99, 102, 241, 0.06),
+            transparent 60%
+        );
+    }
 
-.portfolio-item::after {
-    content: "View Project";
-    position: absolute;
-    bottom: 1.25rem;
-    right: 1.5rem;
-    font-size: 0.85rem;
-    opacity: 0;
-    transform: translateY(6px);
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
-}
+    .portfolio-item:hover {
+        transform: translateY(-8px);
+        border-color: var(--card-hover-border);
+        box-shadow: 
+            0 25px 60px rgba(0, 0, 0, 0.6),
+            0 0 0 1px rgba(56, 189, 248, 0.2);
+    }
 
-.portfolio-item:hover::after {
-    opacity: 0.85;
-    transform: translateY(0);
+    .portfolio-item::before {
+        opacity: 1;
+    }
 }
 
 /* -------- Reduced Motion -------- */
 
 @media (prefers-reduced-motion: reduce) {
-    .portfolio-item,
-    .portfolio-item::before,
-    .portfolio-item::after {
+    .portfolio-item {
         transition: none;
     }
 
