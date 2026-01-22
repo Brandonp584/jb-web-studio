@@ -108,49 +108,76 @@
     color: var(--color-primary);
 }
 
-/* -------- Tablet -------- */
+/* ======== Tablet ======== */
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
+    .services {
+        padding: 5.5rem var(--space-lg);
+    }
+
+    .services .section-header {
+        text-align: center;
+        max-width: 720px;
+        margin-bottom: 3.5rem;
+    }
+
+    .services .section-header p {
+        margin: 0 auto;
+    }
+
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 }
 
-/* -------- Desktop -------- */
+/* ======== Desktop ======== */
 
 @media (min-width: 1024px) {
     .services {
-        padding: clamp(5rem, 8vw, 7rem) var(--space-lg);
+        padding: clamp(6rem, 10vw, 7.5rem) var(--space-lg);
+        background: radial-gradient(
+            var(--glow-lg) circle at top,
+            rbga(99, 102, 241, 0.06),
+            transparent 60%
+        );
     }
 
     .services-grid {
+        max-width: var(--max-width);
+        margin: 0 auto;
         grid-template-columns: repeat(3, 1fr);
         gap: var(--grid-gap-lg);
     }
 
-    .service-card {
-        padding: var(--card-padding-lg);
+    .service-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(56, 189, 248, 0.45);
+        box-shadow: 
+            0 25px 60px rgba(0, 0, 0, 0.6),
+            0 0 0 1px rgba(56, 189, 248, 0.2);
+    }
+
+    .service-card:hover h3 {
+        color: var(--color-primary);
     }
 
     .service-card::before {
-        background: 
-            radial-gradient(
-                var(--glow-md) circle at top left,
-                rgba(56, 189, 248, 0.1),
-                transparent 65%
-            );
+        opacity: 0;
+        transition: opacity 0.4s ease;
     }
+
+    .service-card:hover::before {
+        opacity: 1;
+    }
+
+
 }
 
 /* -------- Reduced Motion -------- */
 
 @media (prefers-reduced-motion: reduce) {
-    .service-card,
-    .service-card::before {
+    .service-card {
         transition: none;
-    }
-
-    .service-card:hover {
-        transform: none;
     }
 }
