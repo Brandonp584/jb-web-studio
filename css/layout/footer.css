@@ -136,7 +136,7 @@
 /* Text styling for readability */
 .footer-bottom p {
   font-size: 0.95rem;
-  color: #ffffff; /* bright white for max contrast */
+  color: #070707; /* bright white for max contrast */
   letter-spacing: 0.03em;
   text-align: center;
   text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* subtle shadow for pop */
@@ -146,7 +146,7 @@
 /* Dot accent */
 .footer-dot {
   margin: 0 0.35rem;
-  color: #fbbf24; /* golden accent */
+  color: #000000; /* golden accent */
   opacity: 0.9;
 }
 
