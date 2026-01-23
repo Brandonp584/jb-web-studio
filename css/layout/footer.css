@@ -1,0 +1,177 @@
+/* ========== FOOTER SECTION (Mobile First) ========== */
+
+.footer {
+  position: relative;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+/* subtle agency accent */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0.5;
+}
+
+/* ===== Main Content ===== */
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+/* ===== Brand ===== */
+
+.footer-brand h2 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.footer-brand p {
+  max-width: 42ch;
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* ===== Navigation ===== */
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.footer-nav a {
+  font-size: var(--text-sm);
+  color: var(--color-text-alt);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--color-primary);
+}
+
+/* ===== Social Icons ===== */
+
+.footer-socials {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.footer-socials a {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-muted);
+  transition: all 0.25s ease;
+}
+
+.footer-socials a:hover {
+  color: #fff;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+}
+
+.footer-socials svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* ===== Footer Bottom: Animated Two-Color Gradient ===== */
+.footer-bottom {
+  width: 100%;
+  border-top: 1px solid var(--color-border-subtle);
+
+  /* Two distinct colors, subtle so text can read */
+  background: linear-gradient(
+    270deg,
+    rgba(56, 189, 248, 0.8) 0%,
+    rgba(99, 102, 241, 0.8) 50%,
+    rgba(56, 189, 248, 0.8) 100%
+  );
+  background-size: 200% 100%; /* wide for animation */
+  animation: gradientMove 25s linear infinite;
+
+  position: relative;
+  display: flex;           /* ensures inner content stretches & centers */
+  justify-content: center; /* horizontal centering */
+  align-items: center;     /* vertical centering */
+  padding: 1rem 0;         /* extra vertical padding for breathing room */
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Inner wrapper for max-width alignment */
+.footer-bottom-inner {
+  max-width: var(--max-width);
+  width: 100%;       /* important for centering */
+  padding: 0 var(--space-md);
+  text-align: center;
+  z-index: 1;        /* ensures text stays above gradient */
+}
+
+/* Text styling for readability */
+.footer-bottom p {
+  font-size: 0.95rem;
+  color: #ffffff; /* bright white for max contrast */
+  letter-spacing: 0.03em;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* subtle shadow for pop */
+  margin: 0;
+}
+
+/* Dot accent */
+.footer-dot {
+  margin: 0 0.35rem;
+  color: #fbbf24; /* golden accent */
+  opacity: 0.9;
+}
+
+/* ===== Tablet & Up ===== */
+
+@media (min-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 1.5fr 1fr auto;
+    align-items: center;
+  }
+
+  .footer-socials {
+    justify-self: end;
+  }
+}
+
+/* ===== Desktop spacing ===== */
+
+@media (min-width: 1024px) {
+  .footer-inner {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+  }
+
+  .footer-bottom-inner {
+    padding: var(--space-xs) var(--space-md);
+  }
+}
