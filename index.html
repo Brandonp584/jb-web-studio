@@ -188,20 +188,30 @@
     </section>
 
     <section id="contact" class="contact">
-        <div class="section-header">
-            <h2>Contact Us</h2>
-            <p>Let's build something great together</p>
-        </div>
+        <div class="contact-inner">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Let's build something great together</p>
+            </div>
 
-        <form id="contact-form" action="https://formspree.io/f/mnjneqkz" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="phone" name="phone" placeholder="Mobile Number" />
-            <input type="email" name="email" placeholder="Your Email" required />
-            <textarea name="message" placeholder="Your Message" required></textarea>
+            <form 
+                id="contact-form" 
+                action="https://formspree.io/f/mnjneqkz" 
+                method="POST"
+                novalidate
+            >
+            <input type="text" name="name" placeholder="Your Name *" required />
+            <input type="email" name="email" placeholder="Your Email *" required />
+            <input type="tel" name="phone" placeholder="Mobile Number" />
+            <input type="text" name="business" placeholder="Business Name *" required />
+            <textarea name="message" placeholder="Your Message *" required></textarea>
 
             <button type="submit" class="btn primary magnetic">
-                Send Message
+                <span class="btn-text">Send Message</span>
+                <span class="btn-loader"></span>
             </button>
+
+            <p id="form-status" aria-live="polite"></p>
         </form>
 
         <!-- Contact reassurance -->
