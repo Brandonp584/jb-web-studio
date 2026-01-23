@@ -7,7 +7,7 @@
 
     /* Color Scheme */
     --color-primary: #38bdf8;
-    --color-seconday: #6366f1;
+    --color-secondary: #6366f1;
     --color-bg-dark: #020617;
     --color-text-light: #e5e7eb;
     --color-text-muted: #94a3b8;
@@ -28,6 +28,15 @@
 
     /* Max width */
     --max-width: 1200px;
+
+    /* NavBar / Surface Layers */
+    --color-surface-nav: rgba(15, 23, 42, 0.82);
+    --color-surface-nav-scrolled: rgba(15, 23, 42, 0.96);
+
+    --color-border-subtle: rgba(255, 255, 255, 0.08);
+
+    /* Accent Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
 
     /* Card Spacing */
     --card-padding-sm: 1.75rem;

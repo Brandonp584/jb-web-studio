@@ -5,22 +5,22 @@
     top: 0;
     width: 100%;
     z-index: 100;
-    background: rgba(2, 6, 23, 0.75);
+    background: var(--color-surface-nav);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid var(--color-border-subtle);
     transition: background 0.3s ease, box-shadow 0.3s ease;
     overflow: visible;
 }
 
 .navbar.scrolled {
-    background: rgba(2, 6, 23, 0.95);
+    background: var(--color-surface-nav-scrolled);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 0 auto;
-    padding: 1rem 1.5rem;
+    padding: var(--space-sm) var(--space-md);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,7 +30,7 @@
 .logo {
     font-weight: 700;
     font-size: 1rem;
-    color: #e5e7eb;
+    color: var(--color-text-light);
     text-decoration: none;
 }
 
@@ -47,7 +47,7 @@
 .nav-toggle span {
     width: 24px;
     height: 2px;
-    background: #e5e7eb;
+    background: var(--color-text-light);
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -57,7 +57,7 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(2, 6, 23, 0.98);
+    background: var(--color-bg-dark);
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
@@ -77,22 +77,22 @@
 }
 
 .nav-links a {
-    color: #e5e7eb;
+    color: var(--color-text-light);
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;    
 }
 
 .nav-links a.active {
-    color: #38bdf8;
+    color: var(--color-primary);
 }
 
 /* Button Link */
 .nav-links a.btn {
-    margin-top: 0.75rem;
+    margin-top: var(--space-xs);
     padding: 0.75rem 1.5rem;
-    border-radius: 999px;
-    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    border-radius: var(--radius-full);
+    background: var(--gradient-primary);
     color: #fff;
     text-align: center;
 }
@@ -113,11 +113,12 @@
         opacity: 1;
         pointer-events: auto;
         transform: none;
+        gap: var(--space-md);
     }
 
     .nav-links a {
         position: relative;
-        font-size: 0.95rem;
+        font-size: var(--text-sm);
         padding: 0.25rem 0;
     }
 
@@ -128,7 +129,7 @@
         bottom: -6px;
         width: 100%;
         height: 2px;
-        background: linear-gradient(90deg, #38bdf8, #6366f1);
+        background: var(--gradient-primary);
         transform: scaleX(0);
         transform-origin: left;
         transition: transform 0.3s ease;
