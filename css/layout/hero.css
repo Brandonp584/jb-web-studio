@@ -1,14 +1,22 @@
 /* ========== HERO SECTION (Mobile First) ========== */
+body {
+    overflow-x: hidden;
+}
+
+
 .hero {
+    width: 100%;
+    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: url('/assets/images/brisbane-city.jpg') center/cover no-repeat;
+    background: url('/assets/images/brisbane-city.jpg') center / cover no-repeat;
     position: relative;
     color: var(--color-text-light);
     text-align: center;
     padding: var(--space-xl) var(--space-md);
+    overflow-x: hidden;
 }
 
 /* Overlay for readability */
@@ -22,6 +30,8 @@
 }
 
 .hero-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
     position: relative;
     z-index: 1;
 }
