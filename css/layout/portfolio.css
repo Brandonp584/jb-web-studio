@@ -1,19 +1,18 @@
 /* ========== PORTFOLIO SECTION (Mobile First) ========== */
-
 .portfolio {
     padding: var(--section-padding-mobile) var(--space-md);
     background: radial-gradient(
-            var(--glow-md) circle at top,
-            rgba(99, 102, 241, 0.05),
-            transparent 65%
-        );
+        var(--glow-md) circle at top,
+        rgba(99, 102, 241, 0.05),
+        transparent 65%
+    );
 }
 
 /* -------- Section Header -------- */
 .portfolio .section-header {
     text-align: center;
     max-width: 48ch;
-    margin: 0 auto var(--space-lg);    
+    margin: 0 auto var(--space-lg);
 }
 
 .portfolio .section-header h2 {
@@ -28,7 +27,6 @@
 }
 
 /* -------- Grid -------- */
-
 .portfolio-grid {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -37,51 +35,15 @@
     gap: var(--grid-gap-sm);
 }
 
-/* -------- Portfolio Item -------- */
-
+/* Portfolio Items now use the reusable card */
 .portfolio-item {
-    position: relative;
     aspect-ratio: 4 / 3;
-    border-radius: var(--radius-md);
-    background: var(--card-bg-gradient);
-    border: var(--card-border);
-    overflow: hidden;
-
     display: flex;
     align-items: flex-end;
-    padding: var(--card-padding-sm);    
-    
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        border-color 0.35s ease;
-}
-
-/* title / Placeholer */
-.portfolio-item::after {
-    content: attr(data-title);
-    font-size: var(--text-sm);
-    color: var(--color-text-light);
-    opacity: 0.9;
-}
-
-/* Glow Layer */
-.portfolio-item::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-        var(--glow-sm) circle at top left,
-        rgba(56, 189, 248, 0.12),
-        transparent 65%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
+    padding: var(--card-padding-sm);
 }
 
 /* ========== Tablet ========== */
-
 @media (min-width: 768px) {
     .portfolio {
         padding: 5.5rem var(--space-lg);
@@ -94,7 +56,6 @@
 }
 
 /* ========== Desktop ========== */
-
 @media (min-width: 1024px) {
     .portfolio {
         padding: var(--section-padding-desktop) var(--space-lg);
@@ -104,28 +65,6 @@
             transparent 60%
         );
     }
-
-    .portfolio-item:hover {
-        transform: translateY(-8px);
-        border-color: var(--card-hover-border);
-        box-shadow: 
-            0 25px 60px rgba(0, 0, 0, 0.6),
-            0 0 0 1px rgba(56, 189, 248, 0.2);
-    }
-
-    .portfolio-item::before {
-        opacity: 1;
-    }
 }
 
-/* -------- Reduced Motion -------- */
 
-@media (prefers-reduced-motion: reduce) {
-    .portfolio-item {
-        transition: none;
-    }
-
-    .portfolio-item:hover {
-        transform: none;
-    }
-}
