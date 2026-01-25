@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J&B Web Studio | High-Performance Websites</title>
+    <meta name="description" content="J&B Web Studio — High-performance websites for small businesses. Design, development, SEO & performance. Free consultation.">
+    <link rel="canonical" href="https://yourdomain.example/">
 
     <!-- CSS -->
      <link rel="stylesheet" href="css/style.css" />
@@ -24,13 +26,14 @@
                     type="button"
                     aria-label="Toggle navigation"
                     aria-expanded="false"
+                    aria-controls="primary-navigation"
                 >
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
 
-                <ul class="nav-links">
+                <ul id="primary-navigation" class="nav-links">
                     <li><a href="#top">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#why-us">Why Us</a></li>
@@ -200,12 +203,20 @@
                 method="POST"
                 novalidate
             >
-            <input type="text" name="name" placeholder="Your Name *" required />
-            <input type="email" name="email" placeholder="Your Email *" required />
-            <input type="tel" name="phone" placeholder="Mobile Number" />
-            <input type="text" name="business" placeholder="Business Name *" required />
-            <textarea name="message" placeholder="Your Message *" required></textarea>
+            <label class="sr-only" for="name">Your name *</label>
+            <input type="text" name="name" required />
 
+            <label class="sr-only" for="email">Your email *</label>
+            <input type="email" name="email" required />
+
+            <label class="sr-only" for="phone">Mobile number</label>
+            <input type="tel" name="phone" />
+
+            <label class="sr-only" for="business">Business name *</label>
+            <input type="text" name="business" required />
+
+            <label class="sr-only" for="message">Your message *</label>
+            <textarea name="message" required></textarea>
             <button type="submit" class="btn primary magnetic">
                 <span class="btn-text">Send Message</span>
                 <span class="btn-loader"></span>

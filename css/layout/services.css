@@ -6,7 +6,7 @@
         radial-gradient(
             var(--glow-lg) circle at top,
             rgba(99, 102, 241, 0.06),
-            tansparent 65%
+            transparent 65%
         );
 }
 
