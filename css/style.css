@@ -3,6 +3,11 @@
 @import "./base/reset.css";
 @import "./base/typography.css";
 
+/* ========== COMPONENTS ========== */
+@import "./components/buttons.css";
+@import "./components/cards.css";
+@import "./components/forms.css";
+
 /* ========== LAYOUT ========== */
 @import "./layout/navbar.css";
 @import "./layout/hero.css";
@@ -13,7 +18,3 @@
 @import "./layout/contact.css";
 @import "./layout/footer.css";
 
-/* ========== COMPONENTS ========== */
-@import "./components/buttons.css";
-@import "./components/cards.css";
-@import "./components/forms.css";

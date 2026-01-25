@@ -13,4 +13,5 @@ html {
 body {
     background: var(--color-bg-dark);
     color: #fff;
+    overflow-x: hidden;
 }

@@ -1,0 +1,10 @@
+/* -------- Card (Reusable) -------- */
+
+.card {
+    padding: var(--card-padding-lg);
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius-md);
+}
+
+
