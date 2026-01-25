@@ -61,33 +61,6 @@
     animation: fadeInUp 1.2s ease forwards;
 }
 
-/* Button Styling */
-.hero-actions a.btn {
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-full);
-    text-decoration: none;
-    font-weight: 500;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hero-actions a.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
-}
-
-/* Primary Button */
-.hero-actions a.btn.primary {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    color: var(--color-text-light);
-}
-
-/* Seconday Button */
-.hero-actions a.btn.secondary {
-    background: transparent;
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
-}
-
 /* ========== TABLET (768px+) ========== */
 @media (min-width: 768px) {
     .hero {
