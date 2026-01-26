@@ -1,0 +1,32 @@
+{
+  "name": "jb-web-studio",
+  "version": "1.0.0",
+  "description": "J&B Web Studio Portfolio Website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --host",
+    "build:css": "postcss css/style.css -o dist/css/style.min.css",
+    "build:js": "vite build",
+    "optimize:images": "node scripts/optimize-images.js",
+    "critical": "node scripts/critical-css.js",
+    "build": "npm run build:css && npm run build:js && npm run optimize:images && npm run critical",
+    "preview": "vite preview",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "autoprefixer": "^10.4.14",
+    "critical": "^6.0.0",
+    "cssnano": "^6.0.1",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.0",
+    "imagemin-webp": "^7.0.0",
+    "postcss": "^8.4.32",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^16.1.1",
+    "vite": "^4.5.0"
+  }
+}

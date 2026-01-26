@@ -23,9 +23,11 @@
 
 #why-us .section-header p {
     color: var(--color-text-muted);
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     max-width: 42ch;
+    text-align: center;
+    margin-inline: auto;
 }
 
 /* -------- Inner Container & Grid -------- */

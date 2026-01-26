@@ -68,6 +68,12 @@
     position: relative;
 }
 
+#contact-form .btn {
+    justify-self: center;
+    width: 100%;
+    max-width: 420px;
+}
+
 /* -------- Contact Trust -------- */
 
 .contact-trust {
@@ -86,7 +92,7 @@
 }
 
 .trust-points li {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.75);
 }
 
