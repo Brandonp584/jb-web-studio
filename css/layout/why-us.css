@@ -64,12 +64,12 @@
 }
 
 .why-us-card h3 {
-    font-size: 1.15rem;
+    font-size: var(--text-lg);
     margin-bottom: 0.5rem;
 }
 
 .why-us-card p {
-    font-size: var(--text-sm);
+    font-size: var(--text-md);
     color: var(--color-text-muted);
     line-height: 1.6;
 }

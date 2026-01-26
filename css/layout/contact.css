@@ -1,4 +1,4 @@
-/* ========== CONTACT SECTION ========== */
+/* ================== CONTACT SECTION ================== */
 
 .contact {
     position: relative;
@@ -7,6 +7,7 @@
     overflow: hidden;
 }
 
+/* Dark overlay for contrast */
 .contact::before {
     content: "";
     position: absolute;
@@ -22,16 +23,14 @@
     position: relative;
     max-width: var(--max-width);
     margin: 0 auto;
+    z-index: 1; /* ensure content sits above overlay */
 }
 
-/* -------- Header -------- */
-
+/* -------- Section Header -------- */
 .contact .section-header {
     max-width: 48ch;
     margin: 0 auto 3rem;
     text-align: center;
-    position: relative;
-    z-index: 1;
 }
 
 .contact .section-header h2 {
@@ -40,42 +39,62 @@
     letter-spacing: -0.02em;
     color: #ffffff;
     margin-bottom: 0.75rem;
-
-    /* subtle clarity glow */
     text-shadow:
         0 2px 8px rgba(0, 0, 0, 0.6),
         0 0 24px rgba(56, 189, 248, 0.25);
 }
 
-/* Subtitle */
 .contact .section-header p {
     font-size: clamp(1rem, 2vw, 1.15rem);
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.85);
     margin: 0 auto;
     max-width: 40ch;
-
-    text-shadow:
-        0 1px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* -------- Form Layout -------- */
+/* -------- Contact Form Card -------- */
+.form-required-note {
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+.form-required-note .required {
+    color: var(--color-primary); /* highlight the * */
+    font-weight: 600;
+}
+
 #contact-form {
     max-width: 680px;
     margin: 0 auto;
     display: grid;
     gap: 1.25rem;
     position: relative;
+
+    /* Solid card background + subtle shadow */
+    background: #020617; /* solid dark card */
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); /* flat card, subtle lift */
+    padding: 2rem;
+
+    /* No hover effects on the form itself */
+    transition: none;
 }
 
-#contact-form .btn {
+/* NOTE: Inputs and textarea are handled in components/form.css,
+   so we do NOT override them here */
+
+/* -------- CTA Button -------- */
+#contact-form .btn.cta {
     justify-self: center;
     width: 100%;
     max-width: 420px;
+    /* hover handled in buttons.css */
 }
 
-/* -------- Contact Trust -------- */
-
+/* -------- Contact reassurance -------- */
 .contact-trust {
     margin-top: 2.5rem;
     text-align: center;
@@ -96,8 +115,7 @@
     color: rgba(255, 255, 255, 0.75);
 }
 
-/* ========== Desktop ========== */
-
+/* ========== Desktop Layout ========== */
 @media (min-width: 1024px) {
     #contact-form {
         display: grid;
@@ -111,9 +129,5 @@
 
     #contact-form .btn {
         grid-column: span 2;
-    }
-
-    #contact-form .btn:hover {
-        transform: translateY(-3px) scale(1.02);
     }
 }
