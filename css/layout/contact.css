@@ -2,7 +2,7 @@
 
 .contact {
     position: relative;
-    padding: var(--section-padding-mobile) var(--space-md);
+    padding: var(--section-padding-mobile) 0; /* remove left/right padding for full-width bg */
     background: url("/assets/images/teamwork.png") center / cover no-repeat;
     overflow: hidden;
 }
@@ -24,6 +24,7 @@
     max-width: var(--max-width);
     margin: 0 auto;
     z-index: 1; /* ensure content sits above overlay */
+    padding: 0 var(--space-md); /* padding inside for form/text */
 }
 
 /* -------- Section Header -------- */
@@ -39,9 +40,8 @@
     letter-spacing: -0.02em;
     color: #ffffff;
     margin-bottom: 0.75rem;
-    text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.6),
-        0 0 24px rgba(56, 189, 248, 0.25);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6),
+                 0 0 24px rgba(56, 189, 248, 0.25);
 }
 
 .contact .section-header p {
@@ -53,7 +53,7 @@
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* -------- Contact Form Card -------- */
+/* -------- Form Required Note -------- */
 .form-required-note {
     text-align: center;
     font-size: 1.2rem;
@@ -66,32 +66,28 @@
     font-weight: 600;
 }
 
+/* -------- Contact Form Card -------- */
 #contact-form {
     max-width: 680px;
     margin: 0 auto;
     display: grid;
-    gap: 1.25rem;
+    gap: 1rem;
     position: relative;
 
-    /* Solid card background + subtle shadow */
     background: #020617; /* solid dark card */
     border-radius: var(--radius-lg);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); /* flat card, subtle lift */
     padding: 2rem;
 
-    /* No hover effects on the form itself */
+    /* No hover/lift effects */
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     transition: none;
 }
 
-/* NOTE: Inputs and textarea are handled in components/form.css,
-   so we do NOT override them here */
-
-/* -------- CTA Button -------- */
+/* CTA Button */
 #contact-form .btn.cta {
     justify-self: center;
     width: 100%;
     max-width: 420px;
-    /* hover handled in buttons.css */
 }
 
 /* -------- Contact reassurance -------- */
@@ -117,17 +113,27 @@
 
 /* ========== Desktop Layout ========== */
 @media (min-width: 1024px) {
+    .contact-inner {
+        padding: 0 var(--space-lg); /* inner padding for content on desktop */
+    }
+
     #contact-form {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--grid-gap-sm);
+        grid-template-columns: 1fr; /* keep all inputs stacked vertically */
+        gap: 1.25rem;
     }
 
     #contact-form textarea {
-        grid-column: span 2;
+        grid-column: span 1;
     }
 
     #contact-form .btn {
-        grid-column: span 2;
+        grid-column: span 1;
+    }
+
+    /* full-width background */
+    .contact {
+        background-size: cover;
+        background-position: center center;
     }
 }
