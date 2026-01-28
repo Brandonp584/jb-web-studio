@@ -1,11 +1,7 @@
 /* ========== WHY US SECTION ========== */
 #why-us {
     padding: var(--section-padding-mobile) var(--space-md);
-    background: radial-gradient(
-        var(--glow-md) circle at top,
-        var(--color-primary) 0.05,
-        transparent 65%
-    );
+    background: var(--color-navy);
 }
 
 /* -------- Section Header -------- */
@@ -18,12 +14,12 @@
 #why-us .section-header h2 {
     font-size: clamp(1.8rem, 6vw, 2.2rem);
     margin-bottom: 0.75rem;
-    color: var(--color-navy);
+    color: var(--color-white);
     opacity: 1;
 }
 
 #why-us .section-header p {
-    color: var(--color-navy); /* dark text visible on gradient */
+    color: var(--color-white); /* dark text visible on gradient */
     font-size: 1.2rem;
     line-height: 1.6;
     max-width: 42ch;

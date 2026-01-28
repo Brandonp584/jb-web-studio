@@ -8,11 +8,12 @@
     border-radius: var(--radius-md);
 
     border: 1px solid var(--color-border-subtle);
-    box-shadow: 0 12px 30px rgba(10, 26, 47, 0.08);
+    box-shadow: 0 12px 24px rgba(10, 26, 47, 0.12);
 
-    transition: transform 0.25s ease,
-                box-shadow 0.25s ease,
-                border-color 0.25s ease;
+    transform: translateZ(0); /* GPU acceleration */
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* -------- Card Content -------- */
@@ -28,7 +29,7 @@
 .card p {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: #475569;
+    color: var(--color-text-dark-muted);
     max-width: 38ch;
 }
 
@@ -37,7 +38,7 @@
 .card:hover {
     transform: translateY(-6px);
     border-color: var(--color-accent);
-    box-shadow: 0 22px 50px rgba(10, 26, 47, 0.14);
+    box-shadow: 0 16px 36px rgba(10, 26, 47, 0.14);
 }
 
 /* -------- Reduced Motion -------- */
