@@ -4,7 +4,7 @@
   top: 0;
   width: 100%;
   z-index: 100;
-  height: 80px; /* taller navbar for zoomed-in feel */
+  height: 80px;
   background: var(--color-surface-nav);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border-subtle);
@@ -13,31 +13,31 @@
 
 .navbar.scrolled {
   background: var(--color-surface-nav-scrolled);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* Container: Logo left, links right */
+/* Container */
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 90px;
+  height: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 4rem; /* zoomed-in padding */
+  padding: 0 4rem;
   gap: 2rem;
 }
 
 /* Logo */
 .logo {
-    line-height: 1;
   font-weight: 700;
-  font-size: 1.35rem; /* slightly bigger for zoomed-in */
-  color: var(--color-text-light);
+  font-size: 1.35rem;
+  color: #ffffff;
   text-decoration: none;
+  letter-spacing: -0.02em;
 }
 
-/* Mobile Toggle / Hamburger */
+/* Mobile Toggle */
 .nav-toggle {
   display: flex;
   flex-direction: column;
@@ -50,27 +50,26 @@
 .nav-toggle span {
   width: 24px;
   height: 2px;
-  background: var(--color-text-light);
+  background: #ffffff;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Navigation Links: Mobile */
+/* Mobile Menu */
 .nav-links {
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  background: var(--color-bg-dark);
+  background: rgba(10, 26, 47, 0.98); /* softer navy */
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  padding: 1.5rem;
+  padding: 1.75rem;
   list-style: none;
   transform: translateY(-10px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 999;
 }
 
 .nav-links.open {
@@ -80,30 +79,30 @@
 }
 
 .nav-links a {
-  color: var(--color-text-light);
+  color: #ffffff;
   text-decoration: none;
   font-size: 1.05rem;
   font-weight: 500;
-  line-height: 1;
-  position: relative; /* for underline effect */
+  position: relative;
 }
 
+/* Active link */
 .nav-links a.active {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
-/* Underline hover effect for non-buttons */
+/* Underline hover (clean, no gradient) */
 .nav-links a:not(.btn)::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -3px; /* directly under text */
+  bottom: -4px;
   width: 100%;
   height: 2px;
-  background: var(--gradient-primary);
+  background: var(--color-accent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
 .nav-links a:hover:not(.btn)::after,
@@ -111,7 +110,7 @@
   transform: scaleX(1);
 }
 
-/* ========== Tablet (768px+) ========== */
+/* Tablet+ */
 @media (min-width: 768px) {
   .nav-toggle {
     display: none;
@@ -121,37 +120,15 @@
     position: static;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end; /* links + button right */
     background: none;
     padding: 0;
     opacity: 1;
     pointer-events: auto;
     transform: none;
     gap: 2rem;
-    flex: 1; /* take all space to push right */
-  }
-
-  .nav-links a {
-    font-size: 1.1rem;
-    padding: 0.25rem 0;
-    transition: transform 0.2s ease;
   }
 
   .nav-links a:hover:not(.btn) {
-    transform: scale(1.05);
+    color: var(--color-accent);
   }
-}
-
-/* ========== Desktop (1024px+) ========== */
-@media (min-width: 1024px) {
-  .nav-container {
-    padding: 0 4rem; /* extra horizontal spacing for zoomed-in feel */
-  }
-
-  .nav-links a {
-    font-size: 1.15rem;
-    padding: 0.5rem 0.75rem;
-  }
-
-  /* Navbar button fully handled in buttons.css */
 }

@@ -6,26 +6,35 @@
     justify-content: center;
     gap: 0.5rem;
 
-    padding: clamp(0.75rem, 1vw, 1rem) clamp(1.5rem, 2vw, 2rem);
+    padding: clamp(0.75rem, 1vw, 1rem)
+             clamp(1.5rem, 2vw, 2rem);
+
     border-radius: var(--radius-full);
     border: none;
 
-    background: var(--gradient-primary);
-    color: var(--color-text-light);
+    background: var(--color-accent);
+    color: #ffffff;
+
     font-weight: 500;
     text-decoration: none;
-
     cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
 }
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.35);
-    filter: brightness(1.05);
+    box-shadow: 0 8px 20px rgba(30, 144, 255, 0.35);
 }
 
-/* -------- CTA Button (Contact Form) -------- */
+/* -------- Primary / CTA -------- */
+
+.btn.primary,
+.btn.cta {
+    background: var(--gradient-primary);
+}
 
 .btn.cta {
     font-size: clamp(1.05rem, 2.2vw, 1.25rem);
@@ -37,39 +46,33 @@
     width: 100%;
     max-width: 420px;
 
-    box-shadow: 0 10px 28px rgba(56, 189, 248, 0.4);
+    box-shadow: 0 12px 32px rgba(30, 144, 255, 0.45);
 }
 
 .btn.cta:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 14px 36px rgba(56, 189, 248, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(30, 144, 255, 0.55);
 }
 
-.btn.cta:focus-visible {
-    outline: 3px solid rgba(56, 189, 248, 0.7);
-    outline-offset: 4px;
-}
-
-/* -------- Button Variants -------- */
-
-.btn.primary {
-    background: var(--gradient-primary);
-    color: var(--color-text-light);
-}
+/* -------- Secondary -------- */
 
 .btn.secondary {
     background: transparent;
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
+    border: 2px solid var(--color-accent);
+    color: var(--color-accent);
 }
 
-/* -------- Loader for Buttons -------- */
+.btn.secondary:hover {
+    background: rgba(30, 144, 255, 0.08);
+}
+
+/* -------- Loader -------- */
 
 .btn-loader {
     width: 16px;
     height: 16px;
-    border: 2px solid rgba(2, 6, 23, 0.3);
-    border-top-color: #020617;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #ffffff;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
     opacity: 0;
@@ -79,10 +82,14 @@
     opacity: 1;
 }
 
+/* -------- Navbar Button -------- */
+
 .btn.navbar-btn {
-    padding: 0.75rem 1.75rem; /* slightly wider for navbar */
-    font-size: 0.95rem;       /* slightly smaller font */
+    padding: 0.65rem 1.6rem;
+    font-size: 0.95rem;
 }
+
+/* -------- Animation -------- */
 
 @keyframes spin {
     to { transform: rotate(360deg); }
