@@ -1,12 +1,11 @@
 /* ========== WHY US SECTION ========== */
-
 #why-us {
     padding: var(--section-padding-mobile) var(--space-md);
     background: radial-gradient(
         var(--glow-md) circle at top,
-        rgba(56, 189, 248, 0.05),
+        var(--color-primary) 0.05,
         transparent 65%
-    );  
+    );
 }
 
 /* -------- Section Header -------- */
@@ -19,15 +18,18 @@
 #why-us .section-header h2 {
     font-size: clamp(1.8rem, 6vw, 2.2rem);
     margin-bottom: 0.75rem;
+    color: var(--color-navy);
+    opacity: 1;
 }
 
 #why-us .section-header p {
-    color: var(--color-text-muted);
+    color: var(--color-navy); /* dark text visible on gradient */
     font-size: 1.2rem;
     line-height: 1.6;
     max-width: 42ch;
     text-align: center;
     margin-inline: auto;
+    opacity: 1;
 }
 
 /* -------- Inner Container & Grid -------- */
@@ -43,10 +45,15 @@
     gap: var(--grid-gap-sm);
 }
 
-/* -------- Card Overrides -------- */
+/* -------- Cards -------- */
 .why-us-card {
-    /* now using reusable .card for base */
     position: relative;
+    background: var(--color-bg-card);
+    border: var(--card-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 12px 30px rgba(10, 26, 47, 0.08);
+    padding: var(--card-padding-lg);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .card-accent {
@@ -66,11 +73,12 @@
 .why-us-card h3 {
     font-size: var(--text-lg);
     margin-bottom: 0.5rem;
+    color: var(--color-navy);
 }
 
 .why-us-card p {
     font-size: var(--text-md);
-    color: var(--color-text-muted);
+    color: var(--color-navy); /* dark text for readability */
     line-height: 1.6;
 }
 
@@ -79,15 +87,22 @@
     transform: translateY(var(--featured-offset));
 }
 
+/* Hover Glow */
+.why-us-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-accent);
+    box-shadow: 0 12px 30px rgba(30, 144, 255, 0.25), 0 20px 50px rgba(30, 144, 255, 0.15);
+}
+
 /* Proof Line */
 #why-us .proof {
-    margin: 3rem;
+    margin: 3rem 0;
     text-align: left;
 }
 
 #why-us .proof p {
     font-size: var(--proof-text-size);
-    color: var(--color-text-muted);
+    color: var(--color-navy);
     opacity: 0.85;
     max-width: 48ch;
 }
@@ -124,7 +139,7 @@
         padding: var(--section-padding-desktop) var(--space-lg);
         background: radial-gradient(
             var(--glow-lg) circle at top,
-            rgba(56, 189, 248, 0.06),
+            var(--color-primary) 0.06,
             transparent 60%
         );
     }
